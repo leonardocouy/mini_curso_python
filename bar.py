@@ -1,3 +1,5 @@
+import db
+import random
 # Esse script se destina ao Bar Virtual - Mini Curso Python Una Bom Despacho - Leonardo Flores
 
 # TO-DO LIST
@@ -10,49 +12,29 @@
     - LOGIN
     - LISTA DE PESSOAS DENTRO DO BAR
     - CHECAR QUEM É VIP E PISTA
-    - CRIAR LISTA DE CARDAPIO FIXO
+    - CRIAR LISTA DE CARDAPIO
     - SORTEAR RODADA DE CERVEJA
     - MAIS..
 
     FUNCTIONS
 """
 
+# db.criar_tabela()
+# db.inserir_cliente('Gyonathan', '40', True)
+# db.inserir_cliente('Uhendeu', '19', False)
+# db.inserir_cliente('PH Amigo do Gyonathan', '36', False)
 
-lista_de_pessoas = ['Wendel', 'Jean', 'Marco', 'Bruna', 'PH']
-lista_negra = ['Dionatha']
-cardapio = {
-    'corotinho': ['Corotinho', 2.00],
-    'vodka_absolut': ['Vodka Absolut Açai', 100.00]
-}
+clientes = db.obter_clientes()
+lista_clientes = []
 
-print("Você escolheu o {} e ele custa R${:.2f}".format(cardapio['corotinho'][0], cardapio['corotinho'][1]))
+for cliente in clientes:
+    lista_clientes.append(cliente[1])
 
+def sortear_rodada():
+    random.shuffle(lista_clientes)
+    print(lista_clientes)
+    cliente_escolhido = random.choice(lista_clientes)
+    print('O GANHADOR DA RODADA DE CERVEJA FOI: {}'
+          .format(cliente_escolhido))
 
-limite_cerveja = 5
-
-while(limite_cerveja >= 1):
-    limite_cerveja -= 1
-    print("Você tem {} vezes para tomar cerveja e dar fora daqui"
-          .format(limite_cerveja))
-
-
-logado = True
-
-while(logado):
-    print("beba cerveja e vaza")
-    logado = False
-
-for nome in lista_de_pessoas:
-    print(nome + " Cachaceiro")
-
-for nome in lista_negra:
-    print(nome)
-
-username = input("Digite seu nome: ")
-
-if not username in lista_negra:
-    print("Seja bem vindo")
-else:
-    print("Vaza daqui cachaceiro, vou chamar o segurança")
-
-
+sortear_rodada()
