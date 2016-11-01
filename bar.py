@@ -19,10 +19,10 @@ import random
     FUNCTIONS
 """
 
-# db.criar_tabela()
-# db.inserir_cliente('Gyonathan', '40', True)
-# db.inserir_cliente('Uhendeu', '19', False)
-# db.inserir_cliente('PH Amigo do Gyonathan', '36', False)
+db.criar_tabela()
+db.inserir_cliente('Gyonathan', '40', True)
+db.inserir_cliente('Uhendeu', '19', False)
+db.inserir_cliente('PH Amigo do Gyonathan', '36', False)
 
 clientes = db.obter_clientes()
 lista_clientes = []
